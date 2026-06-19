@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+<ComboBox
+    id="Country" 
+    width="100%"
+    core:require="{handler: 'argos/zfiar018e/zffiar018er/ext/fragment/Country'}"
+    selectionChange="handler.onCountryChange"
+    selectedKey="{ 
+            path: 'filterValues>', 
+            type: 'sap.fe.macros.filter.type.Value', 
+            formatOptions: { 
+                operator: 'argos.zfiar018e.zffiar018er.ext.fragment.Country.onSearch' 
+            }
+        }"
+>
+    <items>
+        <core:Item id="CO" key="CO" text="Colombia" />
+        <core:Item id="DO" key="DO" text="Rep. Dominicana" />
+        <core:Item id="HN" key="HN" text="Honduras" />
+        <core:Item id="PA" key="PA" text="Panama" />
+    </items>
+</ComboBox>   
+</core:FragmentDefinition>

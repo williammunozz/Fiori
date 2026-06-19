@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Thu Jun 04 2026 15:44:35 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "http://basds5:44300/sap/opu/odata4/sap/zui_fiar018e_risk_cntr_rpt_v4/srvd/sap/zsd_fiar018e_risk_cntr_rpt/0001/",
+    "appName": "zf_fiar018e_r",
+    "appTitle": "Reporte centrales de riesgo",
+    "appDescription": "FIAR018E: Reporte centrales de riesgo",
+    "appNamespace": "argos.zfiar018e",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.120.30",
+    "enableEslint": true,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.25.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "report"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

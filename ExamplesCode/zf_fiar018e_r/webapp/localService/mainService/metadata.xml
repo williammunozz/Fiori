@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="reportType">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                    <PropertyRef Name="CompanyCode"/>
+                    <PropertyRef Name="CutoffDate"/>
+                    <PropertyRef Name="Customer"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CutoffDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="isSelected" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Rating" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Corporation" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="CreditLimit" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="LastPaymentDate" Type="Edm.Date"/>
+                <Property Name="CustCreatDate" Type="Edm.Date"/>
+                <Property Name="Address" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Mobile" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="BalanceCurrent" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="D0to30" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="D31to60" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="D61to90" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="D91to120" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="D121to150" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="Mas151" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="TotalBalance" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="IdentificationType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="IdentificationNumber" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="AccountNumber" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="FullName" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="PersonType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OpenDate" Type="Edm.Date"/>
+                <Property Name="DueDate" Type="Edm.Date"/>
+                <Property Name="Situation" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="AccountStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="StatusDate" Type="Edm.Date"/>
+                <Property Name="AgingDays" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="InitialAmount" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="OutstandingBalance" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="MonthlyInstallment" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="OverdueBalance" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2"/>
+                <Property Name="PaidInstallments" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="OverdueInstallments" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="PaymentDeadline" Type="Edm.Date"/>
+                <Property Name="PaymentDate" Type="Edm.Date"/>
+                <Property Name="PaymentForm" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PaymentFrequency" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="FilingOffice" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="FilingCity" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="FilingCityCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ResidenceCity" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ResidenceCityCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ResidenceDept" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ResidenceAddress" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="ResidencePhone" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="WorkCity" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="WorkCityCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="WorkDept" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="WorkAddress" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="WorkPhone" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="MailCity" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MailCityCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="MailDept" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MailAddress" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="TargetSubscriber" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZABS_FIAR_FILES">
+                <Property Name="fileContent" Type="Edm.String" Nullable="false"/>
+                <Property Name="fileExtension" Type="Edm.String" Nullable="false"/>
+                <Property Name="fileName" Type="Edm.String" Nullable="false"/>
+                <Property Name="mimeType" Type="Edm.String" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="onDownload" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.reportType)" Nullable="false"/>
+                <Parameter Name="country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Parameter Name="fileContent" Type="Edm.Binary" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.ZABS_FIAR_FILES" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="report" EntityType="com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.reportType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.reportType/Country">
+                <Annotation Term="SAP__common.Label" String="País"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_country/0001;ps='srvd-zsd_fiar018e_risk_cntr_rpt-0001';va='com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.et-zcefiar018e_risk_center_rpt.country'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Country/Region Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/CompanyCode">
+                <Annotation Term="SAP__common.Label" String="Compañia"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_companycode/0001;ps='srvd-zsd_fiar018e_risk_cntr_rpt-0001';va='com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.et-zcefiar018e_risk_center_rpt.companycode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/CutoffDate">
+                <Annotation Term="SAP__common.Label" String="F. Corte"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Customer">
+                <Annotation Term="SAP__common.Label" String="Cliente"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_customercompany/0001;ps='srvd-zsd_fiar018e_risk_cntr_rpt-0001';va='com.sap.gateway.srvd.zsd_fiar018e_risk_cntr_rpt.v0001.et-zcefiar018e_risk_center_rpt.customer'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/isSelected">
+                <Annotation Term="SAP__common.Label" String="Selección"/>
+                <Annotation Term="SAP__common.Heading" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Rating">
+                <Annotation Term="SAP__common.Label" String="Calificación"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Corporation">
+                <Annotation Term="SAP__common.Label" String="Corporación"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Code">
+                <Annotation Term="SAP__common.Label" String="Código"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/CreditLimit">
+                <Annotation Term="SAP__common.Label" String="Limite credito"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/LastPaymentDate">
+                <Annotation Term="SAP__common.Label" String="Ultima F.Pago"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/CustCreatDate">
+                <Annotation Term="SAP__common.Label" String="Crea. Cliente"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Address">
+                <Annotation Term="SAP__common.Label" String="Dirección"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Phone">
+                <Annotation Term="SAP__common.Label" String="Telefono"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Mobile">
+                <Annotation Term="SAP__common.Label" String="Mobil"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Status">
+                <Annotation Term="SAP__common.Label" String="Estatus"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/BalanceCurrent">
+                <Annotation Term="SAP__common.Label" String="Corriente"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/D0to30">
+                <Annotation Term="SAP__common.Label" String="0–30 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/D31to60">
+                <Annotation Term="SAP__common.Label" String="31–60 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/D61to90">
+                <Annotation Term="SAP__common.Label" String="61–90 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/D91to120">
+                <Annotation Term="SAP__common.Label" String="91–120 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/D121to150">
+                <Annotation Term="SAP__common.Label" String="121–150 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Mas151">
+                <Annotation Term="SAP__common.Label" String="Sobre 151 Días"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/TotalBalance">
+                <Annotation Term="SAP__common.Label" String="Balance"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Currency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Moneda"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/IdentificationType">
+                <Annotation Term="SAP__common.Label" String="Tipo identificación"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/IdentificationNumber">
+                <Annotation Term="SAP__common.Label" String="Nro. Identificación"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/AccountNumber">
+                <Annotation Term="SAP__common.Label" String="Nro. Cuenta/Oblig."/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/FullName">
+                <Annotation Term="SAP__common.Label" String="Nombre completo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PersonType">
+                <Annotation Term="SAP__common.Label" String="Tipo persona"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/OpenDate">
+                <Annotation Term="SAP__common.Label" String="Fec. Apertura"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/DueDate">
+                <Annotation Term="SAP__common.Label" String="Fec. Vencimiento"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Situation">
+                <Annotation Term="SAP__common.Label" String="Novedades"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/AccountStatus">
+                <Annotation Term="SAP__common.Label" String="Estado cuenta"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/StatusDate">
+                <Annotation Term="SAP__common.Label" String="Fecha estado"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/AgingDays">
+                <Annotation Term="SAP__common.Label" String="Edad Mora"/>
+                <Annotation Term="SAP__common.Heading" String="INT4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="4 Byte Signed Integer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/InitialAmount">
+                <Annotation Term="SAP__common.Label" String="Valor inicial"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/OutstandingBalance">
+                <Annotation Term="SAP__common.Label" String="Saldo deuda"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/MonthlyInstallment">
+                <Annotation Term="SAP__common.Label" String="Cuota mensual"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/OverdueBalance">
+                <Annotation Term="SAP__common.Label" String="Saldo mora"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PaidInstallments">
+                <Annotation Term="SAP__common.Label" String="Cuotas canceladas"/>
+                <Annotation Term="SAP__common.Heading" String="INT4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="4 Byte Signed Integer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/OverdueInstallments">
+                <Annotation Term="SAP__common.Label" String="Cuotas mora"/>
+                <Annotation Term="SAP__common.Heading" String="INT4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="4 Byte Signed Integer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PaymentDeadline">
+                <Annotation Term="SAP__common.Label" String="F. Lim. Pago"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PaymentDate">
+                <Annotation Term="SAP__common.Label" String="Fecha Pago"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PaymentForm">
+                <Annotation Term="SAP__common.Label" String="Forma Pago"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/PaymentFrequency">
+                <Annotation Term="SAP__common.Label" String="Frecuencia Pago"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/FilingOffice">
+                <Annotation Term="SAP__common.Label" String="Oficina radicacion"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/FilingCity">
+                <Annotation Term="SAP__common.Label" String="Ciudad Radicacion"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/FilingCityCode">
+                <Annotation Term="SAP__common.Label" String="Ciudad Radicacion Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/ResidenceCity">
+                <Annotation Term="SAP__common.Label" String="Ciudad residencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/ResidenceCityCode">
+                <Annotation Term="SAP__common.Label" String="Ciudad residencia code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/ResidenceDept">
+                <Annotation Term="SAP__common.Label" String="Depart. Recidencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/ResidenceAddress">
+                <Annotation Term="SAP__common.Label" String="Direccion Residencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/ResidencePhone">
+                <Annotation Term="SAP__common.Label" String="Tel. Residencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/WorkCity">
+                <Annotation Term="SAP__common.Label" String="Ciudad Trabajo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/WorkCityCode">
+                <Annotation Term="SAP__common.Label" String="Codigo Ciudad Trabajo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/WorkDept">
+                <Annotation Term="SAP__common.Label" String="Depart. Trabajo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/WorkAddress">
+                <Annotation Term="SAP__common.Label" String="Dirección Trabajo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/WorkPhone">
+                <Annotation Term="SAP__common.Label" String="tel. Trabajo"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/MailCity">
+                <Annotation Term="SAP__common.Label" String="Ciudad Correspondencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/MailCityCode">
+                <Annotation Term="SAP__common.Label" String="Ciudad Correspondencia Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/MailDept">
+                <Annotation Term="SAP__common.Label" String="Departamento Correspondencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/MailAddress">
+                <Annotation Term="SAP__common.Label" String="Dirección Correspondencia"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/Email">
+                <Annotation Term="SAP__common.Label" String="Email"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType/TargetSubscriber">
+                <Annotation Term="SAP__common.Label" String="Subscriptor Destino"/>
+            </Annotations>
+            <Annotations Target="SAP__self.reportType">
+                <Annotation Term="SAP__common.Label" String="Reporte centrales de riesgo"/>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="Default">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="isSelected"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Reporte centrales riesgo"/>
+                        <PropertyValue Property="TypeNamePlural" String="Reporte centrales riesgo"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Country"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CompanyCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CutoffDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="isSelected"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Rating"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Corporation"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Code"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CreditLimit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LastPaymentDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustCreatDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Address"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Phone"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Mobile"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Status"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BalanceCurrent"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="D0to30"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="D31to60"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="D61to90"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="D91to120"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="D121to150"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Mas151"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalBalance"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Currency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="IdentificationType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="IdentificationNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AccountNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FullName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PersonType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OpenDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DueDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Situation"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AccountStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StatusDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AgingDays"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="InitialAmount"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OutstandingBalance"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MonthlyInstallment"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OverdueBalance"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PaidInstallments"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OverdueInstallments"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PaymentDeadline"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PaymentDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PaymentFrequency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PaymentForm"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FilingOffice"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FilingCity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FilingCityCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResidenceCity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResidenceCityCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResidenceDept"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResidenceAddress"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ResidencePhone"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkCity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkCityCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkDept"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkAddress"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkPhone"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MailCity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MailCityCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MailDept"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MailAddress"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Email"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TargetSubscriber"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Country</PropertyPath>
+                        <PropertyPath>CompanyCode</PropertyPath>
+                        <PropertyPath>CutoffDate</PropertyPath>
+                        <PropertyPath>Customer</PropertyPath>
+                        <PropertyPath>Rating</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/report">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Country"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="CompanyCode"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="CutoffDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Customer"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Rating"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Country</PropertyPath>
+                                <PropertyPath>CompanyCode</PropertyPath>
+                                <PropertyPath>CutoffDate</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onDownload(Collection(SAP__self.reportType))/country">
+                <Annotation Term="SAP__common.Label" String="Country/Region Key"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
