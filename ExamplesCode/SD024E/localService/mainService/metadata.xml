@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="certifMdtoType">
+                <Key>
+                    <PropertyRef Name="SocMdtria"/>
+                    <PropertyRef Name="FiscalYear"/>
+                    <PropertyRef Name="FiscalPeriod"/>
+                    <PropertyRef Name="bill_doc"/>
+                    <PropertyRef Name="posicion"/>
+                </Key>
+                <Property Name="SocMdtria" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FiscalYear" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FiscalPeriod" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="bill_doc" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="posicion" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="companycode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Payer" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PayerTaxNum" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="PayerName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="BillDocType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BillDocRef" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PayRef" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="AcctDoc" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AccountingDate" Type="Edm.Date"/>
+                <Property Name="BillTypeName" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="Concept" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZDFIAR024E_CERT_MDTO_PDF">
+                <Property Name="Attachment" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="128"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="128"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="generarPDF" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.certifMdtoType)" Nullable="false"/>
+                <Parameter Name="SocMdte" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="CertDate" Type="Edm.Date" Nullable="true"/>
+                <Parameter Name="SocMdtria" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="FiscalYear" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="FiscalPeriod" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Parameter Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.ZDFIAR024E_CERT_MDTO_PDF" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="certifMdto" EntityType="com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.certifMdtoType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.certifMdtoType/SocMdtria">
+                <Annotation Term="SAP__common.Label" String="Sociedad Mandataria"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_salesorganization/0001;ps='srvd-zsdfiar024e_cert_mdto-0001';va='com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.et-zcefiar024e_cert_mdto.socmdtria'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CO02"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/FiscalYear">
+                <Annotation Term="SAP__common.Label" String="Ejercicio"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="Year"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fiscal Year"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/FiscalPeriod">
+                <Annotation Term="SAP__common.Label" String="Periodo"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zifiar024e_fiscalperiod_vh/0001;ps='srvd-zsdfiar024e_cert_mdto-0001';va='com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.et-zcefiar024e_cert_mdto.fiscalperiod'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Period"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Period"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/bill_doc">
+                <Annotation Term="SAP__common.Label" String="Doc"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bill. Doc."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Billing Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/posicion">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Billing Document"/>
+                <Annotation Term="SAP__common.Heading" String="Bill. Doc."/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/Plant">
+                <Annotation Term="SAP__common.Label" String="Soc.Cent."/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/companycode">
+                <Annotation Term="SAP__common.Label" String="Cliente"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zifiar024e_custombysalesorgvh/0001;ps='srvd-zsdfiar024e_cert_mdto-0001';va='com.sap.gateway.srvd.zsdfiar024e_cert_mdto.v0001.et-zcefiar024e_cert_mdto.companycode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/PlantName">
+                <Annotation Term="SAP__common.Label" String="Nombre Empresa"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/Payer">
+                <Annotation Term="SAP__common.Label" String="Resp.pago"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/PayerTaxNum">
+                <Annotation Term="SAP__common.Label" String="D.Pagador"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/PayerName">
+                <Annotation Term="SAP__common.Label" String="Nombre del Pagador"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/NetAmount">
+                <Annotation Term="SAP__common.Label" String="Net.Pos"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/TaxAmount">
+                <Annotation Term="SAP__common.Label" String="Impuesto"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/Currency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/BillDocType">
+                <Annotation Term="SAP__common.Label" String="ClFact"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/BillDocRef">
+                <Annotation Term="SAP__common.Label" String="Factura"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/PayRef">
+                <Annotation Term="SAP__common.Label" String="Refer.Pago"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/AcctDoc">
+                <Annotation Term="SAP__common.Label" String="Doc.Contable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/AccountingDate">
+                <Annotation Term="SAP__common.Label" String="Fecha de Contabilizacion"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/BillTypeName">
+                <Annotation Term="SAP__common.Label" String="Desc.Cl.Fra"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType/Concept">
+                <Annotation Term="SAP__common.Label" String="Concepto"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/SocMdte">
+                <Annotation Term="SAP__common.Label" String="Sociedad Mandante"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/CertDate">
+                <Annotation Term="SAP__common.Label" String="Fecha de Certificacion"/>
+            </Annotations>
+            <Annotations Target="SAP__self.certifMdtoType">
+                <Annotation Term="SAP__common.Label" String="Certificado de Mandato por Factura"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Certificado de Mandato"/>
+                        <PropertyValue Property="TypeNamePlural" String="Certificados de Mandato"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="bill_doc"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SocMdtria"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PlantName"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="companycode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Payer"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PayerTaxNum"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="6rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PayerName"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="10rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmount"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TaxAmount"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BillDocType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BillDocRef"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PayRef"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="6rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AcctDoc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AccountingDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BillTypeName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Concept"/>
+                            <Annotation Term="SAP__HTML5.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem"/>
+                                </Record>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SocMdtria</PropertyPath>
+                        <PropertyPath>FiscalYear</PropertyPath>
+                        <PropertyPath>FiscalPeriod</PropertyPath>
+                        <PropertyPath>companycode</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/certifMdto">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="SocMdtria"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FiscalYear"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AccountingDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>SocMdtria</PropertyPath>
+                                <PropertyPath>FiscalYear</PropertyPath>
+                                <PropertyPath>FiscalPeriod</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/SocMdtria">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/FiscalYear">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Fiscal Year"/>
+                <Annotation Term="SAP__common.Heading" String="Year"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/FiscalPeriod">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Posting Period"/>
+                <Annotation Term="SAP__common.Heading" String="Period"/>
+            </Annotations>
+            <Annotations Target="SAP__self.generarPDF(Collection(SAP__self.certifMdtoType))/Customer">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Number"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
