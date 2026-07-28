@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout">
+	<Dialog id="idFileDialog" title="{i18n>uploadDialogTitle}" >
+		
+		<VBox id="idVBox" width="100%">
+			<core:InvisibleText id="idInvisibleText" text="{i18n>uploadDialogTitle}"/>
+			<f:SimpleForm id="idSimpleForm" editable="true" layout="ResponsiveGridLayout" maxContainerCols="2">
+				<f:content>
+					<Label id="idFileUploadlabel" required="true" text="{i18n>uploadFile}"/>
+					<u:FileUploader id="idFileUpload" name="internalFileUpload" change="onFileChange" width="100%" 
+                    uploadComplete="onUploadComplete" style="Emphasized" fileType="xls,xlsx" placeholder="{i18n>uploadPlaceholder}"
+                    tooltip="{i18n>uploadTooolTip}" sendXHR="false" />
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<footer>
+			<Toolbar id="idFooterToolbar">
+				<content>
+					<!-- <Button id="idDownloadTempButton" text="{i18n>downloadTempButtonTxt}" press="onTempDownload" icon= "sap-icon://download-from-cloud" /> -->
+					<Button id="idUploadButton" text="{i18n>uploadButtonTxt}" type="Emphasized" press="onUploadPress" icon="sap-icon://upload-to-cloud" />
+					<Button id="idCancelButton" text="{i18n>cancelButtonTxt}" press="onCancelPress" icon="sap-icon://cancel"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>
